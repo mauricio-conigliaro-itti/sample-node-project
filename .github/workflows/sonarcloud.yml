@@ -21,7 +21,7 @@ jobs:
        with:
          node-version: '14'
      - name: NPM install and build
-       run: |
+       run:
          npm install
          npm run build
      - name: Análisis SonarCloud

@@ -1,0 +1,36 @@
+name: Análisis SonarCloud
+
+
+on:
+ push:
+   branches:
+     - main
+ pull_request:
+   branches:
+     - main
+
+
+jobs:
+ build:
+   name: Build
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v2
+     - name: Set up Node.js
+       uses: actions/setup-node@v1
+       with:
+         node-version: '14'
+     - name: NPM install and build
+       run: |
+         npm install
+         npm run build
+     - name: Análisis SonarCloud
+       uses: SonarSource/sonarcloud-github-action@master
+       with:
+         args: >
+           -Dsonar.projectKey=mauricio-conigliaro-itti_sample
+           -Dsonar.organization=mauricio-conigliaro-itti
+           -Dsonar.sources=.
+           -Dsonar.host.url=https://sonarcloud.io
+       env:
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

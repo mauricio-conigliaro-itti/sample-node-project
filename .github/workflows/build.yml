@@ -16,8 +16,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3 # Actualizado a la última versión
-      with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
     - name: Set up Node.js
       uses: actions/setup-node@v3 # Asegúrate de usar la versión más reciente

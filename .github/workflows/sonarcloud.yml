@@ -28,6 +28,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
-        args: >
+        args:
           -Dsonar.projectKey=mauricio-conigliaro-itti_sample-node-project
           -Dsonar.organization=mauricio-conigliaro-itti
